@@ -1,0 +1,164 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:root {
+  --clr-primary-400: hsl(215, 51%, 70%);
+  --clr-primary-700: hsl(178, 100%, 50%);
+  --clr-primary-800: hsl(178, 100%, 33%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%, 0.8);
+  /* line */
+  --clr-neutral-500: hsl(215, 32%, 27%);
+  /* card bg */
+  --clr-neutral-700: hsl(216, 50%, 16%);
+  /* main bg */
+  --clr-neutral-900: hsl(217, 54%, 11%);
+
+  --fs-normal: 1.125rem;
+  --ff-default: Outfit;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-bold: 600;
+}
+
+body {
+  font-family: var(--ff-default);
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-light);
+  color: var(--clr-primary-400);
+  background: var(--clr-neutral-900);
+
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  background: var(--clr-neutral-700);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  max-width: 25rem;
+}
+
+.grid-flow {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card-image {
+  cursor: pointer;
+  position: relative;
+}
+.card-image img {
+  border-radius: 1rem;
+}
+
+.card-image:hover .card-image-overlay {
+  background-color: hsla(178, 100%, 50%, 0.5);
+}
+
+.card-image-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: 0.5s ease;
+  background-color: transparent;
+  border-radius: 1rem;
+}
+.card-image:hover .card-image-overlay img {
+  opacity: 1;
+}
+.card-image-overlay img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+}
+
+.card-title {
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.card-title:hover,
+.card-title:focus-visible {
+  color: var(--clr-primary-700);
+}
+
+.card-description {
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.crypto,
+.card-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.crypto p {
+  color: var(--clr-primary-700);
+  font-weight: var(--fw-normal);
+}
+
+.card-author {
+  border-top: 1px solid var(--clr-neutral-500);
+  padding-top: 0.75rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.card-author img {
+  width: 10%;
+  border: 1px solid var(--clr-neutral-100);
+  border-radius: 50%;
+}
+
+.card-author p {
+  font-size: 1rem;
+}
+.card-author span {
+  font-weight: var(--fw-normal);
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+}
+.card-author span:hover,
+.card-author span:focus-visible {
+  color: var(--clr-primary-800);
+}
+
+@media (max-width: 600px) {
+  .card {
+    margin-inline: 1.5rem;
+  }
+}
